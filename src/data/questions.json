@@ -1,0 +1,3022 @@
+{
+ "web": [
+  {
+   "q": "What does HTML stand for?",
+   "options": [
+    "Hyper Text Markup Language",
+    "High Transfer Machine Language",
+    "Hyperlink and Text Management Language",
+    "Home Tool Markup Language"
+   ],
+   "correct": 0,
+   "explain": "HTML = HyperText Markup Language, the structure layer of the web.",
+   "d": 1
+  },
+  {
+   "q": "Which tag creates a hyperlink?",
+   "options": [
+    "<a>",
+    "<link>",
+    "<href>",
+    "<nav>"
+   ],
+   "correct": 0,
+   "explain": "The anchor tag <a href=\"...\"> links pages.",
+   "d": 1
+  },
+  {
+   "q": "CSS property to make text bold?",
+   "options": [
+    "font-weight",
+    "text-bold",
+    "font-style: strong",
+    "weight"
+   ],
+   "correct": 0,
+   "explain": "font-weight: bold (or 700) thickens glyphs.",
+   "d": 1
+  },
+  {
+   "q": "What does CSS stand for?",
+   "options": [
+    "Cascading Style Sheets",
+    "Computer Styled Sections",
+    "Creative Sheet System",
+    "Coded Style Syntax"
+   ],
+   "correct": 0,
+   "explain": "Cascade = later/specific rules win.",
+   "d": 1
+  },
+  {
+   "q": "Which HTML element holds JavaScript?",
+   "options": [
+    "<script>",
+    "<js>",
+    "<code>",
+    "<run>"
+   ],
+   "correct": 0,
+   "explain": "<script src=\"...\"> or inline <script>.",
+   "d": 1
+  },
+  {
+   "q": "Semantic tag for main page content?",
+   "options": [
+    "<main>",
+    "<div class=\"main\">",
+    "<section id=\"top\">",
+    "<body-main>"
+   ],
+   "correct": 0,
+   "explain": "<main> wraps the dominant content once per page.",
+   "d": 2
+  },
+  {
+   "q": "Difference between id and class?",
+   "options": [
+    "id unique, class reusable",
+    "class unique, id reusable",
+    "both identical",
+    "id for CSS only"
+   ],
+   "correct": 0,
+   "explain": "One id per page; classes apply to many elements.",
+   "d": 2
+  },
+  {
+   "q": "Which HTTP method should update data idempotently?",
+   "options": [
+    "PUT",
+    "POST",
+    "PATCH",
+    "CONNECT"
+   ],
+   "correct": 0,
+   "explain": "PUT sets full resource state - repeat calls give same result.",
+   "d": 3
+  },
+  {
+   "q": "What is the CSS box model order (inside-out)?",
+   "options": [
+    "content, padding, border, margin",
+    "margin, border, padding, content",
+    "padding, content, margin, border",
+    "border, margin, content, padding"
+   ],
+   "correct": 0,
+   "explain": "Innermost content outwards: padding, border, margin.",
+   "d": 2
+  },
+  {
+   "q": "Flexbox: which property centers children on the main axis?",
+   "options": [
+    "justify-content",
+    "align-items",
+    "place-self",
+    "order"
+   ],
+   "correct": 0,
+   "explain": "justify-content distributes along the main axis.",
+   "d": 2
+  },
+  {
+   "q": "What does API stand for?",
+   "options": [
+    "Application Programming Interface",
+    "Applied Program Internet",
+    "Automated Processing Input",
+    "App Protocol Interconnect"
+   ],
+   "correct": 0,
+   "explain": "Contract letting programs talk to each other.",
+   "d": 1
+  },
+  {
+   "q": "Which status code means \"Not Found\"?",
+   "options": [
+    "404",
+    "301",
+    "500",
+    "200"
+   ],
+   "correct": 0,
+   "explain": "4xx client errors; 404 = resource missing.",
+   "d": 1
+  },
+  {
+   "q": "localStorage vs sessionStorage difference?",
+   "options": [
+    "session clears on tab close",
+    "local clears weekly",
+    "session is encrypted",
+    "no difference"
+   ],
+   "correct": 0,
+   "explain": "localStorage persists; sessionStorage dies with the tab session.",
+   "d": 3
+  },
+  {
+   "q": "What is responsive design?",
+   "options": [
+    "Layout adapts to screen size",
+    "Fast server responses",
+    "Auto-translated text",
+    "Pages that load in background"
+   ],
+   "correct": 0,
+   "explain": "Media queries + fluid grids adapt layout to viewport.",
+   "d": 2
+  },
+  {
+   "q": "Which unit scales with root font size?",
+   "options": [
+    "rem",
+    "px",
+    "pt",
+    "cm"
+   ],
+   "correct": 0,
+   "explain": "rem = relative to <html> font-size.",
+   "d": 2
+  },
+  {
+   "q": "Purpose of <meta viewport>?",
+   "options": [
+    "Control mobile scaling",
+    "Boost SEO ranking directly",
+    "Cache pages",
+    "Compress images"
+   ],
+   "correct": 0,
+   "explain": "Sets width/scale so mobile browsers render responsively.",
+   "d": 2
+  },
+  {
+   "q": "What is a CDN?",
+   "options": [
+    "Edge-cached content network",
+    "Central Domain Nameserver",
+    "Code Deployment Node",
+    "Client Data Notation"
+   ],
+   "correct": 0,
+   "explain": "Serves assets from servers geographically near users.",
+   "d": 3
+  },
+  {
+   "q": "CORS headers control…",
+   "options": [
+    "cross-origin requests",
+    "page colors",
+    "font loading only",
+    "cookie size"
+   ],
+   "correct": 0,
+   "explain": "Servers whitelist which origins may call them.",
+   "d": 4
+  },
+  {
+   "q": "Which is NOT a JavaScript framework?",
+   "options": [
+    "Django",
+    "React",
+    "Vue",
+    "Svelte"
+   ],
+   "correct": 0,
+   "explain": "Django is a Python web framework.",
+   "d": 1
+  },
+  {
+   "q": "What does \"progressive enhancement\" mean?",
+   "options": [
+    "Baseline works everywhere, extras layer on top",
+    "Require newest browser always",
+    "Load everything lazily",
+    "Upgrade server hardware"
+   ],
+   "correct": 0,
+   "explain": "Core content/function first; richer UX where supported.",
+   "d": 4
+  },
+  {
+   "q": "Grid: fr unit represents…",
+   "options": [
+    "fraction of free space",
+    "frame rate",
+    "fixed ratio px",
+    "font ratio"
+   ],
+   "correct": 0,
+   "explain": "grid-template-columns: 1fr 2fr splits space 1:2.",
+   "d": 3
+  },
+  {
+   "q": "What is hydration in web dev?",
+   "options": [
+    "Attaching JS interactivity to server-rendered HTML",
+    "Compressing images",
+    "Adding watermarks",
+    "Loading fonts"
+   ],
+   "correct": 0,
+   "explain": "Framework binds event listeners/state onto pre-rendered markup.",
+   "d": 5
+  },
+  {
+   "q": "HTTP/2 key improvement?",
+   "options": [
+    "Multiplexed streams over one connection",
+    "Faster DNS only",
+    "Bigger cookies",
+    "New image format"
+   ],
+   "correct": 0,
+   "explain": "Multiple parallel requests share one TCP connection.",
+   "d": 4
+  },
+  {
+   "q": "What does aria-label do?",
+   "options": [
+    "Accessible name for assistive tech",
+    "Labels form inputs visually",
+    "Names API endpoints",
+    "Tags analytics events"
+   ],
+   "correct": 0,
+   "explain": "Screen readers announce it; invisible visually.",
+   "d": 3
+  },
+  {
+   "q": "Best practice for passwords storage?",
+   "options": [
+    "Salted slow hash (bcrypt/argon2)",
+    "MD5",
+    "AES encryption",
+    "Plain text"
+   ],
+   "correct": 0,
+   "explain": "Slow salted hashes resist brute-force if leaked.",
+   "d": 5
+  }
+ ],
+ "js": [
+  {
+   "q": "typeof null returns…",
+   "options": [
+    "\"object\"",
+    "\"null\"",
+    "\"undefined\"",
+    "\"boolean\""
+   ],
+   "correct": 0,
+   "explain": "Historical bug kept for compatibility.",
+   "d": 2
+  },
+  {
+   "q": "Which adds an item to array end?",
+   "options": [
+    "push()",
+    "pop()",
+    "shift()",
+    "splice()"
+   ],
+   "correct": 0,
+   "explain": "push appends; pop removes last.",
+   "d": 1
+  },
+  {
+   "q": "const arr = [1,2,3]; arr.push(4) — valid?",
+   "options": [
+    "Yes, const freezes binding not contents",
+    "No, arrays are immutable",
+    "Only with let",
+    "Throws TypeError"
+   ],
+   "correct": 0,
+   "explain": "const prevents reassignment, not mutation.",
+   "d": 2
+  },
+  {
+   "q": "Output: console.log(0.1+0.2===0.3)",
+   "options": [
+    "false",
+    "true",
+    "TypeError",
+    "undefined"
+   ],
+   "correct": 0,
+   "explain": "IEEE754 float rounding: 0.30000000000000004.",
+   "d": 3
+  },
+  {
+   "q": "What is a closure?",
+   "options": [
+    "Function retaining outer scope",
+    "Closed TCP connection",
+    "Finished promise",
+    "Private class field"
+   ],
+   "correct": 0,
+   "explain": "Inner function keeps access to outer variables after return.",
+   "d": 3
+  },
+  {
+   "q": "Array.filter returns…",
+   "options": [
+    "new filtered array",
+    "first match",
+    "boolean",
+    "undefined"
+   ],
+   "correct": 0,
+   "explain": "filter never mutates original.",
+   "d": 1
+  },
+  {
+   "q": "== vs === ?",
+   "options": [
+    "=== checks type too",
+    "identical operators",
+    "== is faster strict",
+    "=== coerces types"
+   ],
+   "correct": 0,
+   "explain": "== coerces; === requires same type.",
+   "d": 1
+  },
+  {
+   "q": "Promise states are…",
+   "options": [
+    "pending, fulfilled, rejected",
+    "open, closed",
+    "start, stop",
+    "sync, async"
+   ],
+   "correct": 0,
+   "explain": "Settles once: fulfilled or rejected.",
+   "d": 2
+  },
+  {
+   "q": "Spread syntax [...arr] does…",
+   "options": [
+    "shallow copies elements",
+    "deep clone nested",
+    "sorts array",
+    "freezes array"
+   ],
+   "correct": 0,
+   "explain": "Copies top-level references into new array.",
+   "d": 2
+  },
+  {
+   "q": "Which loops over object values?",
+   "options": [
+    "Object.values(obj)",
+    "obj.forEach()",
+    "obj.loop()",
+    "values(obj)"
+   ],
+   "correct": 0,
+   "explain": "Object.values returns value array.",
+   "d": 2
+  },
+  {
+   "q": "Template literal syntax?",
+   "options": [
+    "`Hi ${name}`",
+    "'Hi ' + name!",
+    "\"Hi {name}\"",
+    "%s Hi name"
+   ],
+   "correct": 0,
+   "explain": "Backticks with ${} interpolation.",
+   "d": 1
+  },
+  {
+   "q": "Event delegation means…",
+   "options": [
+    "Parent handler manages child events",
+    "Multiple event loops",
+    "Delegating to Worker",
+    "Browser auto-binds"
+   ],
+   "correct": 0,
+   "explain": "One listener on ancestor uses bubbling - efficient lists.",
+   "d": 3
+  },
+  {
+   "q": "async function always returns…",
+   "options": [
+    "a Promise",
+    "the raw value",
+    "undefined",
+    "a Generator"
+   ],
+   "correct": 0,
+   "explain": "Even returning 5 gives Promise<5>.",
+   "d": 2
+  },
+  {
+   "q": "Map vs Object key types?",
+   "options": [
+    "Map allows any type",
+    "identical",
+    "Object allows functions as keys",
+    "Map keys are strings only"
+   ],
+   "correct": 0,
+   "explain": "Map keys can be objects, NaN, etc., and preserve insertion order.",
+   "d": 3
+  },
+  {
+   "q": "Nullish coalescing ?? falls back when value is…",
+   "options": [
+    "null or undefined",
+    "falsy",
+    "zero",
+    "NaN only"
+   ],
+   "correct": 0,
+   "explain": "Unlike || which triggers on any falsy.",
+   "d": 3
+  },
+  {
+   "q": "Array.reduce((a,b)=>a+b, 0) computes…",
+   "options": [
+    "sum",
+    "max",
+    "concat string",
+    "count"
+   ],
+   "correct": 0,
+   "explain": "Accumulates left-to-right from initial 0.",
+   "d": 2
+  },
+  {
+   "q": "Optional chaining user?.address?.city prevents…",
+   "options": [
+    "TypeError on null path",
+    "memory leaks",
+    "infinite loops",
+    "XSS"
+   ],
+   "correct": 0,
+   "explain": "Short-circuits to undefined instead of throwing.",
+   "d": 2
+  },
+  {
+   "q": "What hoists in JS?",
+   "options": [
+    "function declarations & var",
+    "let & const too fully",
+    "classes fully",
+    "imports at runtime"
+   ],
+   "correct": 0,
+   "explain": "Declarations move to top of scope; let/const stay TDZ.",
+   "d": 4
+  },
+  {
+   "q": "debounce does what?",
+   "options": [
+    "Delays until activity stops",
+    "Runs at fixed rate",
+    "Cancels all events",
+    "Queues clicks"
+   ],
+   "correct": 0,
+   "explain": "Search inputs use it to fire only after typing pauses.",
+   "d": 3
+  },
+  {
+   "q": "structuredClone(obj) gives…",
+   "options": [
+    "deep copy",
+    "JSON string",
+    "shallow reference",
+    "frozen object"
+   ],
+   "correct": 0,
+   "explain": "Handles nesting, Dates, Maps better than JSON roundtrip.",
+   "d": 4
+  },
+  {
+   "q": "module type \"module\" scripts execute…",
+   "options": [
+    "deferred, strict, scoped",
+    "immediately blocking",
+    "twice",
+    "only offline"
+   ],
+   "correct": 0,
+   "explain": "Like defer: after parsing, isolated scope, implicit strict.",
+   "d": 3
+  },
+  {
+   "q": "WeakMap keys must be…",
+   "options": [
+    "objects (garbage-collectable)",
+    "strings",
+    "numbers",
+    "symbols only"
+   ],
+   "correct": 0,
+   "explain": "Allows memory-friendly metadata without leaks.",
+   "d": 4
+  },
+  {
+   "q": "requestAnimationFrame is best for…",
+   "options": [
+    "smooth visual updates",
+    "network polling",
+    "file reads",
+    "timers > 10s"
+   ],
+   "correct": 0,
+   "explain": "Syncs to display refresh, pauses offscreen.",
+   "d": 3
+  },
+  {
+   "q": "try/catch catches errors in…",
+   "options": [
+    "sync code; async needs await/catch",
+    "all cases automatically",
+    "promises natively",
+    "workers too"
+   ],
+   "correct": 0,
+   "explain": "Async throws need try around await or .catch().",
+   "d": 3
+  },
+  {
+   "q": "Symbol(\"x\") === Symbol(\"x\") evaluates…",
+   "options": [
+    "false - unique symbols",
+    "true",
+    "TypeError",
+    "undefined"
+   ],
+   "correct": 0,
+   "explain": "Every Symbol() call creates a distinct identity.",
+   "d": 5
+  }
+ ],
+ "python": [
+  {
+   "q": "Which prints to console?",
+   "options": [
+    "print()",
+    "echo()",
+    "console.log()",
+    "printf()"
+   ],
+   "correct": 0,
+   "explain": "Built-in print function.",
+   "d": 1
+  },
+  {
+   "q": "List index starts at…",
+   "options": [
+    "0",
+    "1",
+    "-1",
+    "depends"
+   ],
+   "correct": 0,
+   "explain": "Zero-based like most languages.",
+   "d": 1
+  },
+  {
+   "q": "len(\"hello\") returns…",
+   "options": [
+    "5",
+    "4",
+    "6",
+    "error"
+   ],
+   "correct": 0,
+   "explain": "Character count.",
+   "d": 1
+  },
+  {
+   "q": "Mutable type is…",
+   "options": [
+    "list",
+    "tuple",
+    "str",
+    "int"
+   ],
+   "correct": 0,
+   "explain": "Lists change in place; tuples/strings cannot.",
+   "d": 2
+  },
+  {
+   "q": "Dict access with missing key [] raises…",
+   "options": [
+    "KeyError",
+    "ValueError",
+    "IndexError",
+    "TypeError"
+   ],
+   "correct": 0,
+   "explain": "Use .get(key, default) to avoid.",
+   "d": 2
+  },
+  {
+   "q": "range(3) yields…",
+   "options": [
+    "0,1,2",
+    "1,2,3",
+    "0,1,2,3",
+    "nothing"
+   ],
+   "correct": 0,
+   "explain": "Stop-exclusive.",
+   "d": 1
+  },
+  {
+   "q": "pip is used for…",
+   "options": [
+    "installing packages",
+    "compiling C",
+    "linting",
+    "formatting"
+   ],
+   "correct": 0,
+   "explain": "PyPI package installer.",
+   "d": 1
+  },
+  {
+   "q": "List comprehension [x*x for x in range(3)] gives…",
+   "options": [
+    "[0,1,4]",
+    "[1,4,9]",
+    "[0,1,2]",
+    "[1,2,3]"
+   ],
+   "correct": 0,
+   "explain": "Maps squares over 0..2.",
+   "d": 2
+  },
+  {
+   "q": "def vs lambda difference?",
+   "options": [
+    "lambda is single-expression anonymous",
+    "none",
+    "lambda is faster always",
+    "def cannot recurse"
+   ],
+   "correct": 0,
+   "explain": "Lambda limited to one expression body.",
+   "d": 2
+  },
+  {
+   "q": "with open(\"f\") as fh: ensures…",
+   "options": [
+    "file closes automatically",
+    "faster IO",
+    "encryption",
+    "append mode"
+   ],
+   "correct": 0,
+   "explain": "Context manager guarantees cleanup.",
+   "d": 2
+  },
+  {
+   "q": "is vs == for strings?",
+   "options": [
+    "== compares value, is identity",
+    "same thing",
+    "is compares value",
+    "never use =="
+   ],
+   "correct": 0,
+   "explain": "is checks same object in memory.",
+   "d": 3
+  },
+  {
+   "q": "*args receives…",
+   "options": [
+    "extra positional args as tuple",
+    "keyword args dict",
+    "iterator",
+    "default args"
+   ],
+   "correct": 0,
+   "explain": "**kwargs handles keyword args as dict.",
+   "d": 3
+  },
+  {
+   "q": "set([1,1,2]) length is…",
+   "options": [
+    "2",
+    "3",
+    "1",
+    "error"
+   ],
+   "correct": 0,
+   "explain": "Sets deduplicate.",
+   "d": 1
+  },
+  {
+   "q": "Which sorts a list in place?",
+   "options": [
+    "list.sort()",
+    "sorted(list)",
+    "list.order()",
+    "sort(list)"
+   ],
+   "correct": 0,
+   "explain": "sorted() returns new; .sort() mutates.",
+   "d": 2
+  },
+  {
+   "q": "None is…",
+   "options": [
+    "a singleton absence value",
+    "zero",
+    "empty string",
+    "false keyword"
+   ],
+   "correct": 0,
+   "explain": "Its own type NoneType.",
+   "d": 1
+  },
+  {
+   "q": "f\"{2+2}\" renders…",
+   "options": [
+    "4",
+    "{2+2}",
+    "2+2",
+    "error"
+   ],
+   "correct": 0,
+   "explain": "f-strings evaluate expressions inside braces.",
+   "d": 2
+  },
+  {
+   "q": "try/except/else/finally: else runs when…",
+   "options": [
+    "no exception raised",
+    "exception caught",
+    "always",
+    "never"
+   ],
+   "correct": 0,
+   "explain": "else executes if try block succeeded.",
+   "d": 3
+  },
+  {
+   "q": "Default mutable argument def f(x=[]) danger?",
+   "options": [
+    "Shared across calls",
+    "Slower",
+    "Syntax error",
+    "None"
+   ],
+   "correct": 0,
+   "explain": "Evaluated once at definition - classic bug source.",
+   "d": 4
+  },
+  {
+   "q": "__init__ method purpose?",
+   "options": [
+    "Constructor initialization",
+    "Destructor",
+    "String representation",
+    "Iterator protocol"
+   ],
+   "correct": 0,
+   "explain": "Runs on instance creation.",
+   "d": 2
+  },
+  {
+   "q": "Generator uses keyword…",
+   "options": [
+    "yield",
+    "return only",
+    "async",
+    "pass"
+   ],
+   "correct": 0,
+   "explain": "yield produces lazy sequence values.",
+   "d": 3
+  },
+  {
+   "q": "Type of 10/2 result?",
+   "options": [
+    "float (5.0)",
+    "int (5)",
+    "str",
+    "Decimal"
+   ],
+   "correct": 0,
+   "explain": "True division always floats; // is floor division.",
+   "d": 2
+  },
+  {
+   "q": "Global interpreter lock (GIL) limits…",
+   "options": [
+    "parallel CPU threads",
+    "all IO",
+    "recursion depth",
+    "package installs"
+   ],
+   "correct": 0,
+   "explain": "One thread executes Python bytecode at a time; multiprocessing sidesteps.",
+   "d": 5
+  },
+  {
+   "q": "Decorators are…",
+   "options": [
+    "functions wrapping functions",
+    "comments",
+    "type hints",
+    "imports"
+   ],
+   "correct": 0,
+   "explain": "@decorator applies wrapper logic at definition.",
+   "d": 4
+  },
+  {
+   "q": "dataclass advantage?",
+   "options": [
+    "Auto-generates __init__/__repr__",
+    "Faster than slots",
+    "Removes GIL",
+    "Adds typing runtime"
+   ],
+   "correct": 0,
+   "explain": "Boilerplate reduction for data-holding classes.",
+   "d": 4
+  },
+  {
+   "q": "venv purpose?",
+   "options": [
+    "Isolated project dependencies",
+    "Faster interpreter",
+    "Cloud deploy",
+    "Linting config"
+   ],
+   "correct": 0,
+   "explain": "Per-project site-packages avoids version conflicts.",
+   "d": 3
+  }
+ ],
+ "data": [
+  {
+   "q": "SQL clause filters rows before grouping?",
+   "options": [
+    "WHERE",
+    "HAVING",
+    "GROUP BY",
+    "ORDER BY"
+   ],
+   "correct": 0,
+   "explain": "HAVING filters after aggregation.",
+   "d": 3
+  },
+  {
+   "q": "Primary key guarantees…",
+   "options": [
+    "unique non-null row identity",
+    "sorted storage",
+    "encryption",
+    "auto-increment"
+   ],
+   "correct": 0,
+   "explain": "Uniquely identifies each row; NULL not allowed.",
+   "d": 2
+  },
+  {
+   "q": "DELETE vs TRUNCATE?",
+   "options": [
+    "TRUNCATE resets table fast, no WHERE",
+    "identical",
+    "DELETE is faster",
+    "TRUNCATE logs each row"
+   ],
+   "correct": 0,
+   "explain": "TRUNCATE deallocates pages; DELETE row-by-row with filter.",
+   "d": 3
+  },
+  {
+   "q": "JOIN returning matched rows only?",
+   "options": [
+    "INNER JOIN",
+    "LEFT JOIN",
+    "FULL JOIN",
+    "CROSS JOIN"
+   ],
+   "correct": 0,
+   "explain": "Inner = intersection on predicate.",
+   "d": 2
+  },
+  {
+   "q": "Index primarily improves…",
+   "options": [
+    "read/query speed",
+    "insert speed",
+    "disk space",
+    "backup time"
+   ],
+   "correct": 0,
+   "explain": "Trade-off: writes slightly slower, lookups much faster.",
+   "d": 2
+  },
+  {
+   "q": "ACID D stands for…",
+   "options": [
+    "Durability",
+    "Distribution",
+    "Dependency",
+    "Determinism"
+   ],
+   "correct": 0,
+   "explain": "Committed data survives crashes.",
+   "d": 3
+  },
+  {
+   "q": "Normalization reduces…",
+   "options": [
+    "redundancy",
+    "query count",
+    "indexes",
+    "tables"
+   ],
+   "correct": 0,
+   "explain": "1NF..3NF organize to remove duplication anomalies.",
+   "d": 3
+  },
+  {
+   "q": "COUNT(*) vs COUNT(col)?",
+   "options": [
+    "col skips NULLs",
+    "identical always",
+    "* skips NULLs",
+    "COUNT(*) invalid"
+   ],
+   "correct": 0,
+   "explain": "COUNT(col) ignores NULL values in that column.",
+   "d": 3
+  },
+  {
+   "q": "NoSQL document store example?",
+   "options": [
+    "MongoDB",
+    "PostgreSQL",
+    "SQLite",
+    "Oracle"
+   ],
+   "correct": 0,
+   "explain": "Stores JSON-like documents.",
+   "d": 1
+  },
+  {
+   "q": "GROUP BY department computes aggregates…",
+   "options": [
+    "per department",
+    "overall only",
+    "per row",
+    "per column"
+   ],
+   "correct": 0,
+   "explain": "One result row per group key.",
+   "d": 2
+  },
+  {
+   "q": "Foreign key enforces…",
+   "options": [
+    "referential integrity",
+    "uniqueness",
+    "primary identity",
+    "column types"
+   ],
+   "correct": 0,
+   "explain": "Child values must exist in parent table.",
+   "d": 2
+  },
+  {
+   "q": "Window function OVER(PARTITION BY x) does…",
+   "options": [
+    "aggregate per partition without collapsing rows",
+    "join tables",
+    "deduplicate",
+    "partition disk"
+   ],
+   "correct": 0,
+   "explain": "ROW_NUMBER/RANK/AVG keep row granularity.",
+   "d": 4
+  },
+  {
+   "q": "Transaction rollback happens on…",
+   "options": [
+    "error before COMMIT",
+    "every SELECT",
+    "timeout only",
+    "index rebuild"
+   ],
+   "correct": 0,
+   "explain": "Atomicity: all-or-nothing.",
+   "d": 2
+  },
+  {
+   "q": "CSV stands for…",
+   "options": [
+    "Comma-Separated Values",
+    "Column-Structured Vectors",
+    "Cached Variable Records",
+    "Common Schema Format"
+   ],
+   "correct": 0,
+   "explain": "Simple delimited text interchange.",
+   "d": 1
+  },
+  {
+   "q": "Data warehouse vs OLTP DB?",
+   "options": [
+    "warehouse optimized for analytics reads",
+    "identical",
+    "OLTP for reports",
+    "warehouse is smaller"
+   ],
+   "correct": 0,
+   "explain": "Star schemas, columnar storage, historical snapshots.",
+   "d": 4
+  },
+  {
+   "q": "NULL = NULL evaluates…",
+   "options": [
+    "NULL (unknown)",
+    "true",
+    "false",
+    "error"
+   ],
+   "correct": 0,
+   "explain": "Use IS NULL for null checks.",
+   "d": 3
+  },
+  {
+   "q": "UNION vs UNION ALL?",
+   "options": [
+    "ALL keeps duplicates, faster",
+    "identical",
+    "UNION keeps duplicates",
+    "ALL sorts"
+   ],
+   "correct": 0,
+   "explain": "UNION dedupes via hidden sort/hash.",
+   "d": 3
+  },
+  {
+   "q": "Schema-on-read belongs to…",
+   "options": [
+    "data lakes / NoSQL",
+    "RDBMS tables",
+    "spreadsheets",
+    "CSV strictly"
+   ],
+   "correct": 0,
+   "explain": "Structure applied when querying, not writing.",
+   "d": 4
+  },
+  {
+   "q": "EXPLAIN plan shows…",
+   "options": [
+    "query execution strategy",
+    "table contents",
+    "user grants",
+    "backup status"
+   ],
+   "correct": 0,
+   "explain": "Reveals scans/indexes/joins to optimize.",
+   "d": 3
+  },
+  {
+   "q": "Surrogate key is…",
+   "options": [
+    "synthetic auto-generated ID",
+    "natural SSN-like key",
+    "foreign key",
+    "composite key"
+   ],
+   "correct": 0,
+   "explain": "Has no business meaning - stable joins.",
+   "d": 4
+  },
+  {
+   "q": "Sharding means…",
+   "options": [
+    "horizontal data split across nodes",
+    "vertical column cut",
+    "indexing",
+    "replication to standby"
+   ],
+   "correct": 0,
+   "explain": "Scales writes/dataset size by key ranges/hashes.",
+   "d": 4
+  },
+  {
+   "q": "Idempotent pipeline re-run causes…",
+   "options": [
+    "no duplicate side-effects",
+    "double rows",
+    "data loss",
+    "schema drift"
+   ],
+   "correct": 0,
+   "explain": "Design goal for safe retries in ETL.",
+   "d": 5
+  },
+  {
+   "q": "Median robust to outliers because…",
+   "options": [
+    "position-based not magnitude-based",
+    "uses mean twice",
+    "drops tails",
+    "rounds data"
+   ],
+   "correct": 0,
+   "explain": "A few extreme values barely shift it.",
+   "d": 3
+  },
+  {
+   "q": "Correlation coefficient range?",
+   "options": [
+    "-1 to 1",
+    "0 to 100",
+    "-inf to inf",
+    "0 to 1"
+   ],
+   "correct": 0,
+   "explain": "Sign = direction, magnitude = strength.",
+   "d": 2
+  },
+  {
+   "q": "P-value roughly means…",
+   "options": [
+    "probability of data this extreme if H0 true",
+    "probability H0 true",
+    "effect size",
+    "sample size"
+   ],
+   "correct": 0,
+   "explain": "Misused constantly - it is NOT P(H0|data).",
+   "d": 5
+  }
+ ],
+ "math": [
+  {
+   "q": "15% of 200 is…",
+   "options": [
+    "30",
+    "20",
+    "35",
+    "15"
+   ],
+   "correct": 0,
+   "explain": "0.15 x 200 = 30.",
+   "d": 1
+  },
+  {
+   "q": "Next prime after 7?",
+   "options": [
+    "11",
+    "9",
+    "10",
+    "13"
+   ],
+   "correct": 0,
+   "explain": "8,9,10 composite; 11 prime.",
+   "d": 1
+  },
+  {
+   "q": "Solve 3x = 27",
+   "options": [
+    "9",
+    "24",
+    "81",
+    "8"
+   ],
+   "correct": 0,
+   "explain": "Divide both sides by 3.",
+   "d": 1
+  },
+  {
+   "q": "Sum of angles in a triangle?",
+   "options": [
+    "180°",
+    "360°",
+    "90°",
+    "270°"
+   ],
+   "correct": 0,
+   "explain": "Euclidean geometry constant.",
+   "d": 1
+  },
+  {
+   "q": "√144 equals…",
+   "options": [
+    "12",
+    "14",
+    "24",
+    "72"
+   ],
+   "correct": 0,
+   "explain": "12x12=144.",
+   "d": 1
+  },
+  {
+   "q": "LCM of 4 and 6?",
+   "options": [
+    "12",
+    "24",
+    "2",
+    "18"
+   ],
+   "correct": 0,
+   "explain": "Smallest common multiple: 12.",
+   "d": 2
+  },
+  {
+   "q": "If a fair die is rolled, P(even)?",
+   "options": [
+    "1/2",
+    "1/3",
+    "2/3",
+    "1/6"
+   ],
+   "correct": 0,
+   "explain": "Three even faces among six.",
+   "d": 2
+  },
+  {
+   "q": "Compound interest differs from simple because it…",
+   "options": [
+    "earns interest on interest",
+    "is always lower",
+    "ignores time",
+    "is tax-free"
+   ],
+   "correct": 0,
+   "explain": "Exponential growth via reinvestment.",
+   "d": 2
+  },
+  {
+   "q": "Slope of line through (0,1),(2,5)?",
+   "options": [
+    "2",
+    "4",
+    "1/2",
+    "3"
+   ],
+   "correct": 0,
+   "explain": "(5-1)/(2-0)=2.",
+   "d": 2
+  },
+  {
+   "q": "0! (zero factorial) equals…",
+   "options": [
+    "1",
+    "0",
+    "undefined",
+    "-1"
+   ],
+   "correct": 0,
+   "explain": "Empty product convention.",
+   "d": 3
+  },
+  {
+   "q": "Log₂ 32 equals…",
+   "options": [
+    "5",
+    "6",
+    "16",
+    "4"
+   ],
+   "correct": 0,
+   "explain": "2^5=32.",
+   "d": 2
+  },
+  {
+   "q": "Area of circle radius 7 (π≈22/7)?",
+   "options": [
+    "154",
+    "44",
+    "49",
+    "616"
+   ],
+   "correct": 0,
+   "explain": "πr²=(22/7)x49=154.",
+   "d": 2
+  },
+  {
+   "q": "Which is irrational?",
+   "options": [
+    "√2",
+    "0.5",
+    "3/4",
+    "0.333..."
+   ],
+   "correct": 0,
+   "explain": "Non-repeating non-terminating decimal.",
+   "d": 2
+  },
+  {
+   "q": "Probability of two heads in two fair flips?",
+   "options": [
+    "1/4",
+    "1/2",
+    "1/3",
+    "3/4"
+   ],
+   "correct": 0,
+   "explain": "Independent: 1/2 x 1/2.",
+   "d": 2
+  },
+  {
+   "q": "Arithmetic series 1+2+...+100 sums to…",
+   "options": [
+    "5050",
+    "5000",
+    "10100",
+    "5500"
+   ],
+   "correct": 0,
+   "explain": "n(n+1)/2 = 100x101/2.",
+   "d": 3
+  },
+  {
+   "q": "Matrix multiplication A(2x3) x B needs B rows =",
+   "options": [
+    "3",
+    "2",
+    "any",
+    "6"
+   ],
+   "correct": 0,
+   "explain": "Inner dimensions must match (3).",
+   "d": 3
+  },
+  {
+   "q": "Derivative of x² is…",
+   "options": [
+    "2x",
+    "x",
+    "x³/3",
+    "2"
+   ],
+   "correct": 0,
+   "explain": "Power rule: nx^(n-1).",
+   "d": 2
+  },
+  {
+   "q": "GCD of 48 and 36?",
+   "options": [
+    "12",
+    "6",
+    "24",
+    "4"
+   ],
+   "correct": 0,
+   "explain": "Euclid: gcd(48,36)=gcd(36,12)=12.",
+   "d": 2
+  },
+  {
+   "q": "e (Euler number) ≈",
+   "options": [
+    "2.718",
+    "3.142",
+    "1.618",
+    "2.302"
+   ],
+   "correct": 0,
+   "explain": "Base of natural logarithm.",
+   "d": 2
+  },
+  {
+   "q": "Permutation of 5 items taken 3 at a time?",
+   "options": [
+    "60",
+    "125",
+    "20",
+    "10"
+   ],
+   "correct": 0,
+   "explain": "5!/(5-3)! = 120/2 = 60.",
+   "d": 3
+  },
+  {
+   "q": "Binary 1011 in decimal?",
+   "options": [
+    "11",
+    "13",
+    "9",
+    "23"
+   ],
+   "correct": 0,
+   "explain": "8+0+2+1=11.",
+   "d": 2
+  },
+  {
+   "q": "Limit of 1/x as x→∞?",
+   "options": [
+    "0",
+    "∞",
+    "1",
+    "undefined"
+   ],
+   "correct": 0,
+   "explain": "Shrinks toward zero.",
+   "d": 3
+  },
+  {
+   "q": "Expected value of fair die roll?",
+   "options": [
+    "3.5",
+    "3",
+    "4",
+    "21"
+   ],
+   "correct": 0,
+   "explain": "(1+..+6)/6 = 3.5.",
+   "d": 3
+  },
+  {
+   "q": "Pythagorean triple below is…",
+   "options": [
+    "(3,4,5)",
+    "(2,3,4)",
+    "(4,5,6)",
+    "(5,6,7)"
+   ],
+   "correct": 0,
+   "explain": "9+16=25.",
+   "d": 1
+  },
+  {
+   "q": "Eigenvalue equation is Av = …",
+   "options": [
+    "λv",
+    "vA",
+    "A⁻¹v",
+    "0"
+   ],
+   "correct": 0,
+   "explain": "Linear map stretches eigenvectors by scalar λ.",
+   "d": 5
+  }
+ ],
+ "science": [
+  {
+   "q": "Chemical symbol for gold?",
+   "options": [
+    "Au",
+    "Ag",
+    "Go",
+    "Gd"
+   ],
+   "correct": 0,
+   "explain": "Latin aurum.",
+   "d": 1
+  },
+  {
+   "q": "H₂O is…",
+   "options": [
+    "water",
+    "hydrogen peroxide",
+    "salt",
+    "ozone"
+   ],
+   "correct": 0,
+   "explain": "Two hydrogen, one oxygen.",
+   "d": 1
+  },
+  {
+   "q": "Planet known as Red Planet?",
+   "options": [
+    "Mars",
+    "Venus",
+    "Jupiter",
+    "Mercury"
+   ],
+   "correct": 0,
+   "explain": "Iron oxide dust colors it red.",
+   "d": 1
+  },
+  {
+   "q": "Speed of light ≈",
+   "options": [
+    "300,000 km/s",
+    "300 km/s",
+    "3,000 km/s",
+    "30,000 km/s"
+   ],
+   "correct": 0,
+   "explain": "c ≈ 299,792 km/s in vacuum.",
+   "d": 2
+  },
+  {
+   "q": "Powerhouse of the cell?",
+   "options": [
+    "Mitochondria",
+    "Nucleus",
+    "Ribosome",
+    "Golgi"
+   ],
+   "correct": 0,
+   "explain": "Produces ATP energy currency.",
+   "d": 1
+  },
+  {
+   "q": "pH 7 solution is…",
+   "options": [
+    "neutral",
+    "acidic",
+    "basic",
+    "saline"
+   ],
+   "correct": 0,
+   "explain": "Below 7 acid, above 7 base.",
+   "d": 2
+  },
+  {
+   "q": "Gas plants absorb for photosynthesis?",
+   "options": [
+    "CO₂",
+    "Oxygen",
+    "Nitrogen",
+    "Hydrogen"
+   ],
+   "correct": 0,
+   "explain": "They release O₂ as byproduct.",
+   "d": 1
+  },
+  {
+   "q": "Newton's 3rd law: every action has…",
+   "options": [
+    "equal opposite reaction",
+    "greater reaction",
+    "no reaction",
+    "random reaction"
+   ],
+   "correct": 0,
+   "explain": "Forces come in pairs.",
+   "d": 2
+  },
+  {
+   "q": "DNA carries…",
+   "options": [
+    "genetic information",
+    "oxygen",
+    "electrical signals",
+    "digestive enzymes"
+   ],
+   "correct": 0,
+   "explain": "Double helix stores heredity instructions.",
+   "d": 1
+  },
+  {
+   "q": "Hardest natural substance?",
+   "options": [
+    "Diamond",
+    "Quartz",
+    "Steel",
+    "Titanium"
+   ],
+   "correct": 0,
+   "explain": "Carbon lattice hardness 10 Mohs.",
+   "d": 2
+  },
+  {
+   "q": "Unit of electric current?",
+   "options": [
+    "Ampere",
+    "Volt",
+    "Ohm",
+    "Watt"
+   ],
+   "correct": 0,
+   "explain": "Volts measure potential, ohms resistance.",
+   "d": 2
+  },
+  {
+   "q": "Boiling point of water at sea level?",
+   "options": [
+    "100°C",
+    "90°C",
+    "110°C",
+    "80°C"
+   ],
+   "correct": 0,
+   "explain": "At 1 atm pressure.",
+   "d": 1
+  },
+  {
+   "q": "Blood cells carrying oxygen?",
+   "options": [
+    "Red blood cells",
+    "White blood cells",
+    "Platelets",
+    "Plasma cells"
+   ],
+   "correct": 0,
+   "explain": "Hemoglobin binds O₂.",
+   "d": 2
+  },
+  {
+   "q": "Force equals…",
+   "options": [
+    "mass x acceleration",
+    "mass / velocity",
+    "energy x time",
+    "pressure x volume"
+   ],
+   "correct": 0,
+   "explain": "Newton's second law F=ma.",
+   "d": 2
+  },
+  {
+   "q": "Largest organ of human body?",
+   "options": [
+    "Skin",
+    "Liver",
+    "Brain",
+    "Lungs"
+   ],
+   "correct": 0,
+   "explain": "~2m² covering; liver largest internal.",
+   "d": 2
+  },
+  {
+   "q": "Periodic table organized by increasing…",
+   "options": [
+    "atomic number",
+    "atomic mass only",
+    "density",
+    "radius"
+   ],
+   "correct": 0,
+   "explain": "Modern law: Z (protons).",
+   "d": 3
+  },
+  {
+   "q": "Sound cannot travel through…",
+   "options": [
+    "vacuum",
+    "water",
+    "steel",
+    "air"
+   ],
+   "correct": 0,
+   "explain": "Needs a medium to propagate.",
+   "d": 2
+  },
+  {
+   "q": "Photosynthesis converts light energy into…",
+   "options": [
+    "chemical energy (glucose)",
+    "kinetic energy",
+    "nuclear energy",
+    "sound energy"
+   ],
+   "correct": 0,
+   "explain": "Stored in carbohydrate bonds.",
+   "d": 2
+  },
+  {
+   "q": "Antibiotics treat…",
+   "options": [
+    "bacterial infections",
+    "viruses",
+    "fungi only",
+    "all fevers"
+   ],
+   "correct": 0,
+   "explain": "They target bacterial machinery; useless against viruses.",
+   "d": 3
+  },
+  {
+   "q": "Ohm's law: V equals…",
+   "options": [
+    "IR",
+    "I/R",
+    "R/I",
+    "I²R²"
+   ],
+   "correct": 0,
+   "explain": "Voltage = current x resistance.",
+   "d": 2
+  },
+  {
+   "q": "Absolute zero is…",
+   "options": [
+    "0 K (-273.15°C)",
+    "0°C",
+    "-100°C",
+    "100 K"
+   ],
+   "correct": 0,
+   "explain": "Minimum entropy temperature; motion approaches quantum limit.",
+   "d": 4
+  },
+  {
+   "q": "Half-life measures…",
+   "options": [
+    "time for half nuclei to decay",
+    "battery duration",
+    "orbital period",
+    "reaction yield"
+   ],
+   "correct": 0,
+   "explain": "Exponential decay constant per isotope.",
+   "d": 3
+  },
+  {
+   "q": "E=mc² relates…",
+   "options": [
+    "mass-energy equivalence",
+    "force-distance",
+    "wave-particle phase",
+    "charge-radius"
+   ],
+   "correct": 0,
+   "explain": "Small mass ↔ enormous energy via c².",
+   "d": 3
+  },
+  {
+   "q": "Human genome contains about…",
+   "options": [
+    "3 billion base pairs",
+    "3 million",
+    "46 billion",
+    "300 thousand"
+   ],
+   "correct": 0,
+   "explain": "~3.1 Gbp across 46 chromosomes.",
+   "d": 4
+  },
+  {
+   "q": "CRISPR technology edits…",
+   "options": [
+    "genes precisely",
+    "proteins directly",
+    "cell membranes",
+    "RNA only randomly"
+   ],
+   "correct": 0,
+   "explain": "Guide RNA + Cas9 cuts specific DNA sequences.",
+   "d": 5
+  }
+ ],
+ "space": [
+  {
+   "q": "Closest planet to the Sun?",
+   "options": [
+    "Mercury",
+    "Venus",
+    "Earth",
+    "Mars"
+   ],
+   "correct": 0,
+   "explain": "~58 million km average distance.",
+   "d": 1
+  },
+  {
+   "q": "Our galaxy is named…",
+   "options": [
+    "Milky Way",
+    "Andromeda",
+    "Triangulum",
+    "Sombrero"
+   ],
+   "correct": 0,
+   "explain": "Barred spiral ~100-400k ly across.",
+   "d": 1
+  },
+  {
+   "q": "Light from Sun takes about…",
+   "options": [
+    "8 minutes 20 seconds",
+    "8 seconds",
+    "8 hours",
+    "instant"
+   ],
+   "correct": 0,
+   "explain": "1 AU / c ≈ 499 seconds.",
+   "d": 2
+  },
+  {
+   "q": "Largest planet in Solar System?",
+   "options": [
+    "Jupiter",
+    "Saturn",
+    "Neptune",
+    "Earth"
+   ],
+   "correct": 0,
+   "explain": "More mass than all others combined.",
+   "d": 1
+  },
+  {
+   "q": "Moon phases cycle takes about…",
+   "options": [
+    "29.5 days",
+    "7 days",
+    "365 days",
+    "12 hours"
+   ],
+   "correct": 0,
+   "explain": "Synodic month.",
+   "d": 2
+  },
+  {
+   "q": "Black hole boundary beyond which nothing escapes?",
+   "options": [
+    "Event horizon",
+    "Chromosphere",
+    "Oort limit",
+    "Roche limit"
+   ],
+   "correct": 0,
+   "explain": "Escape velocity exceeds c there.",
+   "d": 3
+  },
+  {
+   "q": "Sun is mainly composed of…",
+   "options": [
+    "hydrogen & helium",
+    "iron & nickel",
+    "carbon & oxygen",
+    "silicon"
+   ],
+   "correct": 0,
+   "explain": "~73% H, 25% He by mass.",
+   "d": 2
+  },
+  {
+   "q": "AU measures…",
+   "options": [
+    "Earth-Sun distance",
+    "light-year",
+    "star brightness",
+    "planet mass"
+   ],
+   "correct": 0,
+   "explain": "≈149.6 million km.",
+   "d": 2
+  },
+  {
+   "q": "Redshift indicates galaxies are…",
+   "options": [
+    "moving away - expanding universe",
+    "approaching",
+    "rotating",
+    "cooling"
+   ],
+   "correct": 0,
+   "explain": "Wavelengths stretch with recession (Hubble).",
+   "d": 3
+  },
+  {
+   "q": "First human in space?",
+   "options": [
+    "Yuri Gagarin",
+    "Neil Armstrong",
+    "Alan Shepard",
+    "John Glenn"
+   ],
+   "correct": 0,
+   "explain": "Vostok 1, April 1961.",
+   "d": 2
+  },
+  {
+   "q": "Supernova is…",
+   "options": [
+    "exploding massive star",
+    "new planet",
+    "comet shower",
+    "binary eclipse"
+   ],
+   "correct": 0,
+   "explain": "Forges heavy elements; brief rival to galaxy brightness.",
+   "d": 3
+  },
+  {
+   "q": "Asteroid belt lies between…",
+   "options": [
+    "Mars and Jupiter",
+    "Earth and Mars",
+    "Saturn and Uranus",
+    "Venus and Earth"
+   ],
+   "correct": 0,
+   "explain": "Millions of rocky remnants.",
+   "d": 2
+  },
+  {
+   "q": "Telescope that orbits Earth capturing deep field images?",
+   "options": [
+    "Hubble",
+    "Keck",
+    "Arecibo",
+    "FAST"
+   ],
+   "correct": 0,
+   "explain": "Launched 1990; space-based optics avoid atmosphere.",
+   "d": 2
+  },
+  {
+   "q": "Why do astronauts float on ISS?",
+   "options": [
+    "Continuous free-fall orbit",
+    "No gravity in space",
+    "Magnetic levitation",
+    "Spin gravity"
+   ],
+   "correct": 0,
+   "explain": "Gravity ~90% surface value; they and station fall together.",
+   "d": 3
+  },
+  {
+   "q": "Nearest star system to us?",
+   "options": [
+    "Alpha Centauri",
+    "Sirius",
+    "Betelgeuse",
+    "Vega"
+   ],
+   "correct": 0,
+   "explain": "4.37 ly away (Proxima closest member).",
+   "d": 3
+  },
+  {
+   "q": "Solar wind is…",
+   "options": [
+    "charged particle stream from Sun",
+    "atmospheric weather",
+    "magnetic storm only",
+    "dust tail"
+   ],
+   "correct": 0,
+   "explain": "Shapes comet tails and auroras.",
+   "d": 3
+  },
+  {
+   "q": "Light-year measures…",
+   "options": [
+    "distance",
+    "time",
+    "brightness",
+    "mass"
+   ],
+   "correct": 0,
+   "explain": "Distance light travels in one year ≈9.46 Tkm.",
+   "d": 1
+  },
+  {
+   "q": "Exoplanets found mostly by…",
+   "options": [
+    "transit dimming & wobble methods",
+    "direct photos",
+    "radio calls",
+    "X-ray flashes"
+   ],
+   "correct": 0,
+   "explain": "Kepler/TESS watch stars dim as planets cross.",
+   "d": 4
+  },
+  {
+   "q": "Neutron star density comparison?",
+   "options": [
+    "Sugar-cube mass = mountain",
+    "like Earth rock",
+    "like water",
+    "like iron"
+   ],
+   "correct": 0,
+   "explain": "Atomic-collapse matter: ~10^17 kg/m³.",
+   "d": 4
+  },
+  {
+   "q": "Dark energy is hypothesized to…",
+   "options": [
+    "accelerate cosmic expansion",
+    "power stars",
+    "bind galaxies internally",
+    "fuel black holes"
+   ],
+   "correct": 0,
+   "explain": "~68% of universe energy budget.",
+   "d": 5
+  },
+  {
+   "q": "Rocket propulsion works via…",
+   "options": [
+    "Newton's third law exhaust reaction",
+    "anti-gravity",
+    "solar sails only",
+    "air pressure push"
+   ],
+   "correct": 0,
+   "explain": "Throwing mass backward pushes craft forward.",
+   "d": 2
+  },
+  {
+   "q": "Geostationary satellite orbital period?",
+   "options": [
+    "24 hours",
+    "90 minutes",
+    "12 hours",
+    "30 days"
+   ],
+   "correct": 0,
+   "explain": "Matches Earth rotation above equator.",
+   "d": 3
+  },
+  {
+   "q": "Cosmic microwave background is…",
+   "options": [
+    "oldest light - Big Bang afterglow",
+    "star noise",
+    "planet glow",
+    "galaxy jets"
+   ],
+   "correct": 0,
+   "explain": "~380k years post-Big-Bang snapshot.",
+   "d": 4
+  },
+  {
+   "q": "Voyager 1 status today?",
+   "options": [
+    "Interstellar space - farthest human object",
+    "Orbiting Mars",
+    "Decommissioned 1990",
+    "Returning to Earth"
+   ],
+   "correct": 0,
+   "explain": "Crossed heliopause 2012; still transmitting.",
+   "d": 4
+  },
+  {
+   "q": "James Webb observes primarily in…",
+   "options": [
+    "infrared",
+    "visible only",
+    "X-ray",
+    "radio"
+   ],
+   "correct": 0,
+   "explain": "IR pierces dust; sees early galaxy redshifts.",
+   "d": 3
+  }
+ ],
+ "geo": [
+  {
+   "q": "Largest ocean by area?",
+   "options": [
+    "Pacific",
+    "Atlantic",
+    "Indian",
+    "Arctic"
+   ],
+   "correct": 0,
+   "explain": "~165 million km².",
+   "d": 1
+  },
+  {
+   "q": "Capital of Japan?",
+   "options": [
+    "Tokyo",
+    "Kyoto",
+    "Osaka",
+    "Seoul"
+   ],
+   "correct": 0,
+   "explain": "Kanto region megacity.",
+   "d": 1
+  },
+  {
+   "q": "Longest river?",
+   "options": [
+    "Nile (~6650km)",
+    "Amazon",
+    "Yangtze",
+    "Ganga"
+   ],
+   "correct": 0,
+   "explain": "Nile traditionally cited; Amazon disputes by volume/source debates.",
+   "d": 3
+  },
+  {
+   "q": "Mount Everest sits on border of…",
+   "options": [
+    "Nepal & China (Tibet)",
+    "India & Nepal",
+    "Bhutan & China",
+    "Pakistan & India"
+   ],
+   "correct": 0,
+   "explain": "Mahalangur Himal section.",
+   "d": 2
+  },
+  {
+   "q": "Largest desert (hint: not hot)?",
+   "options": [
+    "Antarctic",
+    "Sahara",
+    "Gobi",
+    "Thar"
+   ],
+   "correct": 0,
+   "explain": "Deserts defined by precipitation - Antarctica is largest.",
+   "d": 4
+  },
+  {
+   "q": "India's southernmost tip?",
+   "options": [
+    "Indira Point",
+    "Kanyakumari",
+    "Rameswaram",
+    "Kovalam"
+   ],
+   "correct": 0,
+   "explain": "Great Nicobar island point.",
+   "d": 3
+  },
+  {
+   "q": "Country with most population (2024)?",
+   "options": [
+    "India",
+    "China",
+    "USA",
+    "Indonesia"
+   ],
+   "correct": 0,
+   "explain": "India surpassed China in 2023.",
+   "d": 1
+  },
+  {
+   "q": "Strait between India and Sri Lanka?",
+   "options": [
+    "Palk Strait",
+    "Malacca Strait",
+    "Bering Strait",
+    "Hormuz"
+   ],
+   "correct": 0,
+   "explain": "~64km at narrowest.",
+   "d": 3
+  },
+  {
+   "q": "Which continent has Amazon rainforest?",
+   "options": [
+    "South America",
+    "Africa",
+    "Asia",
+    "Oceania"
+   ],
+   "correct": 0,
+   "explain": "Mostly Brazil, Peru, Colombia.",
+   "d": 1
+  },
+  {
+   "q": "Taj Mahal city?",
+   "options": [
+    "Agra",
+    "Jaipur",
+    "Delhi",
+    "Lucknow"
+   ],
+   "correct": 0,
+   "explain": "Yamuna river bank, Uttar Pradesh.",
+   "d": 1
+  },
+  {
+   "q": "Deepest ocean trench?",
+   "options": [
+    "Mariana",
+    "Java",
+    "Puerto Rico",
+    "Tonga"
+   ],
+   "correct": 0,
+   "explain": "Challenger Deep ~11km.",
+   "d": 2
+  },
+  {
+   "q": "Sahara covers much of…",
+   "options": [
+    "North Africa",
+    "South Africa",
+    "Middle East only",
+    "Australia"
+   ],
+   "correct": 0,
+   "explain": "~9.2M km² across 11 countries.",
+   "d": 2
+  },
+  {
+   "q": "Which line divides Earth into hemispheres N/S?",
+   "options": [
+    "Equator",
+    "Prime Meridian",
+    "Tropic of Cancer",
+    "Arctic Circle"
+   ],
+   "correct": 0,
+   "explain": "0° latitude.",
+   "d": 1
+  },
+  {
+   "q": "Largest country by land area?",
+   "options": [
+    "Russia",
+    "Canada",
+    "China",
+    "USA"
+   ],
+   "correct": 0,
+   "explain": "~17M km² spanning 11 time zones.",
+   "d": 2
+  },
+  {
+   "q": "Western Ghats are located in…",
+   "options": [
+    "India (west coast)",
+    "Africa east",
+    "South America",
+    "SE Asia"
+   ],
+   "correct": 0,
+   "explain": "UNESCO biodiversity hotspot.",
+   "d": 3
+  },
+  {
+   "q": "Venice is famous for canals instead of roads. Its country?",
+   "options": [
+    "Italy",
+    "Greece",
+    "Spain",
+    "Croatia"
+   ],
+   "correct": 0,
+   "explain": "Built on lagoon islands, NE Italy.",
+   "d": 1
+  },
+  {
+   "q": "Bhutan measures national success via…",
+   "options": [
+    "Gross National Happiness",
+    "GDP only",
+    "Export volume",
+    "Tourist count"
+   ],
+   "correct": 0,
+   "explain": "Four-pillar development philosophy.",
+   "d": 4
+  },
+  {
+   "q": "Which sea is the saltiest (near)?",
+   "options": [
+    "Dead Sea",
+    "Red Sea",
+    "Black Sea",
+    "Baltic Sea"
+   ],
+   "correct": 0,
+   "explain": "~34% salinity - float easily.",
+   "d": 3
+  },
+  {
+   "q": "Isthmus connecting North & South America?",
+   "options": [
+    "Panama",
+    "Suez",
+    "Kra",
+    "Corinth"
+   ],
+   "correct": 0,
+   "explain": "Canal cut through it in 1914.",
+   "d": 3
+  },
+  {
+   "q": "Monsoon winds bring rain to India during…",
+   "options": [
+    "June-September",
+    "December-February",
+    "March-May",
+    "October only"
+   ],
+   "correct": 0,
+   "explain": "SW monsoon from Indian Ocean.",
+   "d": 2
+  },
+  {
+   "q": "Ring of Fire refers to…",
+   "options": [
+    "Pacific seismic/volcanic rim",
+    "Sahara heat band",
+    "Equator line",
+    "Arctic melt zone"
+   ],
+   "correct": 0,
+   "explain": "~75% of world's volcanoes.",
+   "d": 3
+  },
+  {
+   "q": "Greenwich Meridian passes through…",
+   "options": [
+    "UK",
+    "France only",
+    "Spain",
+    "Portugal"
+   ],
+   "correct": 0,
+   "explain": "0° longitude - UTC reference.",
+   "d": 2
+  },
+  {
+   "q": "Largest island in the world?",
+   "options": [
+    "Greenland",
+    "Madagascar",
+    "Borneo",
+    "Sumatra"
+   ],
+   "correct": 0,
+   "explain": "Australia counts as continent.",
+   "d": 3
+  },
+  {
+   "q": "Cherrapunji (India) is famous for…",
+   "options": [
+    "extreme rainfall",
+    "snow sports",
+    "desert dunes",
+    "volcanoes"
+   ],
+   "correct": 0,
+   "explain": "Among wettest places on Earth.",
+   "d": 2
+  },
+  {
+   "q": "Continental plates move at about…",
+   "options": [
+    "2-10 cm/year",
+    "2-10 m/year",
+    "mm per century",
+    "static"
+   ],
+   "correct": 0,
+   "explain": "Fingernail-growth speed; GPS confirms.",
+   "d": 5
+  }
+ ],
+ "history": [
+  {
+   "q": "Taj Mahal was built by…",
+   "options": [
+    "Shah Jahan",
+    "Akbar",
+    "Ashoka",
+    "Humayun"
+   ],
+   "correct": 0,
+   "explain": "Mausoleum for Mumtaz Mahal, 1632-53.",
+   "d": 1
+  },
+  {
+   "q": "WWII ended in…",
+   "options": [
+    "1945",
+    "1939",
+    "1918",
+    "1950"
+   ],
+   "correct": 0,
+   "explain": "Sept 2, 1945 - Japan surrender.",
+   "d": 1
+  },
+  {
+   "q": "First President of India?",
+   "options": [
+    "Dr. Rajendra Prasad",
+    "Nehru",
+    "Radhakrishnan",
+    "Zakir Husain"
+   ],
+   "correct": 0,
+   "explain": "1950-1962.",
+   "d": 2
+  },
+  {
+   "q": "Who invented the printing press (Europe)?",
+   "options": [
+    "Gutenberg",
+    "Edison",
+    "Tesla",
+    "Caxton"
+   ],
+   "correct": 0,
+   "explain": "~1440 Mainz; revolutionized knowledge spread.",
+   "d": 2
+  },
+  {
+   "q": "Quit India Movement year?",
+   "options": [
+    "1942",
+    "1930",
+    "1920",
+    "1947"
+   ],
+   "correct": 0,
+   "explain": "August 1942, Gandhi's \"Do or Die\".",
+   "d": 2
+  },
+  {
+   "q": "Great Wall was primarily built to…",
+   "options": [
+    "defend against northern invasions",
+    "trade route marking",
+    "flood control",
+    "prison border"
+   ],
+   "correct": 0,
+   "explain": "Ming-era stone sections most visible today.",
+   "d": 2
+  },
+  {
+   "q": "French Revolution began in…",
+   "options": [
+    "1789",
+    "1776",
+    "1815",
+    "1848"
+   ],
+   "correct": 0,
+   "explain": "Bastille July 14, 1789.",
+   "d": 3
+  },
+  {
+   "q": "Ashoka belonged to which dynasty?",
+   "options": [
+    "Maurya",
+    "Gupta",
+    "Chola",
+    "Mughal"
+   ],
+   "correct": 0,
+   "explain": "Ruled ~268-232 BCE; embraced Buddhism post-Kalinga.",
+   "d": 3
+  },
+  {
+   "q": "Industrial Revolution started in…",
+   "options": [
+    "Britain",
+    "France",
+    "USA",
+    "Germany"
+   ],
+   "correct": 0,
+   "explain": "Steam, textiles, coal - late 1700s.",
+   "d": 2
+  },
+  {
+   "q": "Jallianwala Bagh massacre occurred at…",
+   "options": [
+    "Amritsar",
+    "Lahore",
+    "Delhi",
+    "Lucknow"
+   ],
+   "correct": 0,
+   "explain": "April 13, 1919, under Gen. Dyer.",
+   "d": 3
+  },
+  {
+   "q": "Renaissance began in…",
+   "options": [
+    "Italy",
+    "England",
+    "Germany",
+    "Russia"
+   ],
+   "correct": 0,
+   "explain": "14th-century Florence - art & humanism revival.",
+   "d": 2
+  },
+  {
+   "q": "Manhattan Project developed…",
+   "options": [
+    "atomic bomb",
+    "radar",
+    "penicillin",
+    "rocket engines"
+   ],
+   "correct": 0,
+   "explain": "WWII US program; Trinity test 1945.",
+   "d": 3
+  },
+  {
+   "q": "Silk Road connected…",
+   "options": [
+    "China to Mediterranean trade",
+    "India to Australia",
+    "Africa to Brazil",
+    "Vikings to Canada"
+   ],
+   "correct": 0,
+   "explain": "Network of routes, goods & ideas exchange.",
+   "d": 2
+  },
+  {
+   "q": "First woman in space?",
+   "options": [
+    "Valentina Tereshkova",
+    "Kalpana Chawla",
+    "Sally Ride",
+    "Sunita Williams"
+   ],
+   "correct": 0,
+   "explain": "Vostok 6, 1963.",
+   "d": 3
+  },
+  {
+   "q": "Indian Constitution came into effect…",
+   "options": [
+    "26 Jan 1950",
+    "15 Aug 1947",
+    "26 Nov 1949",
+    "2 Oct 1950"
+   ],
+   "correct": 0,
+   "explain": "Adopted 26 Nov 1949; effective Republic Day 1950.",
+   "d": 2
+  },
+  {
+   "q": "Berlin Wall fell in…",
+   "options": [
+    "1989",
+    "1991",
+    "1985",
+    "1979"
+   ],
+   "correct": 0,
+   "explain": "Nov 9, 1989 - Cold War thaw symbol.",
+   "d": 3
+  },
+  {
+   "q": "Chola dynasty was renowned for…",
+   "options": [
+    "naval power & temple architecture",
+    "stepwells",
+    "cave paintings",
+    "astrology texts"
+   ],
+   "correct": 0,
+   "explain": "Maritime trade empire, Brihadeeswarar temple.",
+   "d": 4
+  },
+  {
+   "q": "WHO founded in…",
+   "options": [
+    "1948",
+    "1945",
+    "1950",
+    "1960"
+   ],
+   "correct": 0,
+   "explain": "UN specialized agency, Geneva HQ.",
+   "d": 3
+  },
+  {
+   "q": "Dandi March protested…",
+   "options": [
+    "salt tax",
+    "land revenue",
+    "press law",
+    "railway fares"
+   ],
+   "correct": 0,
+   "explain": "385km walk, 1930 civil disobedience.",
+   "d": 2
+  },
+  {
+   "q": "Magna Carta signed in…",
+   "options": [
+    "1215",
+    "1066",
+    "1492",
+    "1601"
+   ],
+   "correct": 0,
+   "explain": "Limited English monarchy power.",
+   "d": 4
+  },
+  {
+   "q": "Apollo 11 landed on Moon in…",
+   "options": [
+    "1969",
+    "1965",
+    "1972",
+    "1958"
+   ],
+   "correct": 0,
+   "explain": "July 20, 1969 - Armstrong & Aldrin.",
+   "d": 2
+  },
+  {
+   "q": "Ancient university of India (Bihar)?",
+   "options": [
+    "Nalanda",
+    "Taxila",
+    "Vikramashila",
+    "Ujjain"
+   ],
+   "correct": 0,
+   "explain": "5th-12th century Buddhist learning center.",
+   "d": 3
+  },
+  {
+   "q": "Hindi-Chini slogan \"Hindi-Chini bhai bhai\" era?",
+   "options": [
+    "1950s Panchsheel",
+    "1971 war",
+    "1996 agreements",
+    "1988 Rajiv visit"
+   ],
+   "correct": 0,
+   "explain": "Early Nehru-Zhou Enlai warmth, later broken by 1962 war.",
+   "d": 5
+  },
+  {
+   "q": "Printing of first newspaper in India (Hicky's) year?",
+   "options": [
+    "1780",
+    "1857",
+    "1820",
+    "1900"
+   ],
+   "correct": 0,
+   "explain": "Bengal Gazette, James Augustus Hicky.",
+   "d": 4
+  },
+  {
+   "q": "UN formed in…",
+   "options": [
+    "1945",
+    "1919",
+    "1950",
+    "1939"
+   ],
+   "correct": 0,
+   "explain": "Post-WWII charter, 51 founding members.",
+   "d": 2
+  }
+ ],
+ "gk": [
+  {
+   "q": "How many players in a cricket team (on field)?",
+   "options": [
+    "11",
+    "10",
+    "12",
+    "9"
+   ],
+   "correct": 0,
+   "explain": "Standard XI per side.",
+   "d": 1
+  },
+  {
+   "q": "Currency of USA?",
+   "options": [
+    "Dollar",
+    "Euro",
+    "Pound",
+    "Yen"
+   ],
+   "correct": 0,
+   "explain": "USD ($).",
+   "d": 1
+  },
+  {
+   "q": "Rainbow has how many colors?",
+   "options": [
+    "7",
+    "5",
+    "6",
+    "8"
+   ],
+   "correct": 0,
+   "explain": "VIBGYOR convention.",
+   "d": 1
+  },
+  {
+   "q": "National animal of India?",
+   "options": [
+    "Bengal Tiger",
+    "Lion",
+    "Elephant",
+    "Peacock"
+   ],
+   "correct": 0,
+   "explain": "Peacock is the bird; tiger the animal.",
+   "d": 1
+  },
+  {
+   "q": "Olympics happen every…",
+   "options": [
+    "4 years",
+    "2 years",
+    "annual",
+    "5 years"
+   ],
+   "correct": 0,
+   "explain": "Summer/Winter staggered 2-year cycles.",
+   "d": 1
+  },
+  {
+   "q": "Largest mammal?",
+   "options": [
+    "Blue whale",
+    "Elephant",
+    "Giraffe",
+    "Orca"
+   ],
+   "correct": 0,
+   "explain": "~30m, 150 tonnes.",
+   "d": 2
+  },
+  {
+   "q": "Chess originated in…",
+   "options": [
+    "India (chaturanga)",
+    "China",
+    "Persia",
+    "Russia"
+   ],
+   "correct": 0,
+   "explain": "~6th century Gupta era.",
+   "d": 2
+  },
+  {
+   "q": "ISO standard country code for India?",
+   "options": [
+    "IN",
+    "IND",
+    "ID",
+    "IA"
+   ],
+   "correct": 0,
+   "explain": "IN (alpha-2), IND alpha-3.",
+   "d": 2
+  },
+  {
+   "q": "Fastest land animal?",
+   "options": [
+    "Cheetah",
+    "Lion",
+    "Horse",
+    "Antelope"
+   ],
+   "correct": 0,
+   "explain": "Sprints ~110-120 km/h briefly.",
+   "d": 1
+  },
+  {
+   "q": "Google founded by…",
+   "options": [
+    "Page & Brin",
+    "Jobs & Wozniak",
+    "Musk & Musk",
+    "Gates & Allen"
+   ],
+   "correct": 0,
+   "explain": "Larry Page & Sergey Brin, 1998.",
+   "d": 2
+  },
+  {
+   "q": "Which vitamin do we get from sunlight?",
+   "options": [
+    "Vitamin D",
+    "Vitamin C",
+    "B12",
+    "K"
+   ],
+   "correct": 0,
+   "explain": "UVB triggers skin synthesis.",
+   "d": 2
+  },
+  {
+   "q": "Number of continents?",
+   "options": [
+    "7",
+    "5",
+    "6",
+    "8"
+   ],
+   "correct": 0,
+   "explain": "Asia..Oceania/Antarctica model.",
+   "d": 1
+  },
+  {
+   "q": "Full form of ATM?",
+   "options": [
+    "Automated Teller Machine",
+    "Any Time Money",
+    "Account Transfer Mode",
+    "Auto Teller Module"
+   ],
+   "correct": 0,
+   "explain": "Cash dispenser kiosk.",
+   "d": 1
+  },
+  {
+   "q": "ISRO headquarters city?",
+   "options": [
+    "Bengaluru",
+    "Mumbai",
+    "Hyderabad",
+    "Chennai"
+   ],
+   "correct": 0,
+   "explain": "Space Department HQ, Karnataka.",
+   "d": 2
+  },
+  {
+   "q": "Olympic rings represent…",
+   "options": [
+    "five inhabited continents",
+    "five sports",
+    "five medals",
+    "five oceans only"
+   ],
+   "correct": 0,
+   "explain": "Interlocked unity symbol.",
+   "d": 3
+  },
+  {
+   "q": "World's tallest building (2024)?",
+   "options": [
+    "Burj Khalifa",
+    "Shanghai Tower",
+    "Merdeka 118",
+    "Taipei 101"
+   ],
+   "correct": 0,
+   "explain": "Dubai, 828m since 2010.",
+   "d": 2
+  },
+  {
+   "q": "First Indian Nobel laureate?",
+   "options": [
+    "Rabindranath Tagore",
+    "CV Raman",
+    "Mother Teresa",
+    "Amartya Sen"
+   ],
+   "correct": 0,
+   "explain": "Literature 1913, Gitanjali.",
+   "d": 3
+  },
+  {
+   "q": "RAM in computing is…",
+   "options": [
+    "volatile working memory",
+    "permanent storage",
+    "graphics chip",
+    "network card"
+   ],
+   "correct": 0,
+   "explain": "Contents vanish on power-off.",
+   "d": 2
+  },
+  {
+   "q": "Chess grandmaster title requires…",
+   "options": [
+    "2500 rating + norms",
+    "winning world cup",
+    "100 games",
+    "age under 26"
+   ],
+   "correct": 0,
+   "explain": "FIDE title via performance norms.",
+   "d": 4
+  },
+  {
+   "q": "Recycling symbol arrows count?",
+   "options": [
+    "3",
+    "4",
+    "2",
+    "5"
+   ],
+   "correct": 0,
+   "explain": "Reduce-Reuse-Recycle triangle.",
+   "d": 1
+  },
+  {
+   "q": "Longest-running TV soap opera genre country of origin UK show is…",
+   "options": [
+    "Coronation Street",
+    "Friends",
+    "Breaking Bad",
+    "Money Heist"
+   ],
+   "correct": 0,
+   "explain": "ITV since 1960.",
+   "d": 5
+  },
+  {
+   "q": "Emergency number in India?",
+   "options": [
+    "112",
+    "911",
+    "999",
+    "000"
+   ],
+   "correct": 0,
+   "explain": "Unified ERSS 112 (also 100/101 legacy).",
+   "d": 2
+  },
+  {
+   "q": "Cryptocurrencies are typically secured by…",
+   "options": [
+    "blockchain cryptography",
+    "bank vaults",
+    "government insurance",
+    "paper certificates"
+   ],
+   "correct": 0,
+   "explain": "Distributed ledger + key pairs.",
+   "d": 3
+  },
+  {
+   "q": "Leap year occurs every…",
+   "options": [
+    "4 years (with exceptions)",
+    "year",
+    "5 years",
+    "10 years"
+   ],
+   "correct": 0,
+   "explain": "Divisible by 4 except century rules (2000 yes, 1900 no).",
+   "d": 2
+  },
+  {
+   "q": "Saffron, white, green - flag of…",
+   "options": [
+    "India",
+    "Ireland",
+    "Hungary",
+    "Niger"
+   ],
+   "correct": 0,
+   "explain": "With Ashoka Chakra navy blue center.",
+   "d": 1
+  }
+ ]
+}

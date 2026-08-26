@@ -1,0 +1,12 @@
+{
+  "name": "Quizora",
+  "short_name": "Quizora",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b1e",
+  "theme_color": "#7c5cff",
+  "description": "Deep-space adaptive quiz adventure - 250 questions, 10 worlds.",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
