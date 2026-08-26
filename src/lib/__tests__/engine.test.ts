@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
-  ACHIEVEMENTS, applySession, checkAchievements, freshStat, levelFromXp,
-  pickSession, scoreAnswer, touchStreak, updateStat, WORLDS, xpForLevel,
+  ACHIEVEMENTS, accuracyByDifficulty, applySession, bossReady, checkAchievements,
+  freshStat, grantPowerUp, heatmapDays, insertLeaderRow, levelFromXp,
+  mulberry32, openMistakes, pickBoss, pickDaily, pickSession, recordMistake,
+  scoreAnswer, themeUnlocked, touchStreak, updateStat, usePowerUp,
+  WORLDS, worldStars, worldUnlocked, xpForLevel,
 } from '../engine';
 import type { PlayerState, Question, QuestionBank } from './types';
 
@@ -15,6 +18,13 @@ function makeBank(n = 12): QuestionBank {
 }
 
 const rng = () => 0.5;
+
+const base = (): PlayerState => ({
+  name: 'T', xp: 0, coins: 0, gems: 0, streak: 0, lastPlayedISO: null,
+  best: {}, qstats: {}, dailyLog: {}, achievements: [],
+  powerUps: { fifty: 0, freeze: 0, shield: 0 }, mistakes: [], leaderboard: [],
+  flagged: [], theme: 'nebula', sound: true, dysFont: false, packs: [],
+});
 
 describe('xp curve', () => {
   it('is monotonic and starts at 0', () => {
@@ -90,10 +100,7 @@ describe('streaks', () => {
 describe('session application', () => {
   const bank = makeBank();
   it('awards xp/coins and records stats', () => {
-    const state: PlayerState = {
-      xp: 0, coins: 0, gems: 0, streak: 0, lastPlayedISO: null,
-      best: {}, qstats: {}, dailyLog: {}, achievements: [],
-    };
+    const state = base();
     const picks = pickSession(bank, 'web', 3, state.qstats, rng, 5);
     const answers = picks.map((index) => ({
       index, question: bank.web[index], chosen: bank.web[index].correct,
@@ -108,10 +115,8 @@ describe('session application', () => {
     expect(state.achievements).toContain('flawless');
   });
   it('never re-awards an achievement', () => {
-    const state: PlayerState = {
-      xp: 0, coins: 0, gems: 0, streak: 0, lastPlayedISO: null,
-      best: {}, qstats: {}, dailyLog: {}, achievements: ['first-steps'],
-    };
+    const state = base();
+    state.achievements = ['first-steps'];
     const answers = [{
       index: 0, question: bank.web[0], chosen: null as number | null,
       secondsUsed: 10, secondsTotal: 20,
@@ -121,6 +126,108 @@ describe('session application', () => {
   });
   it('achievement catalog has unique ids', () => {
     expect(new Set(ACHIEVEMENTS.map((a) => a.id)).size).toBe(ACHIEVEMENTS.length);
+  });
+});
+
+/* ================= v2 features ================= */
+
+describe('daily challenge & rng', () => {
+  it('mulberry32 is deterministic per seed', () => {
+    const a = mulberry32(42), b = mulberry32(42), c = mulberry32(43);
+    expect([a(), a()]).toEqual([b(), b()]);
+    expect(a()).not.toEqual(c());
+  });
+  it('same seed yields same daily set', () => {
+    const bank = makeBank(25);
+    bank.js = bank.web;
+    const x = pickDaily(bank, 10, 777).map((p) => `${p.world}:${p.index}`);
+    const y = pickDaily(bank, 10, 777).map((p) => `${p.world}:${p.index}`);
+    const z = pickDaily(bank, 10, 778).map((p) => `${p.world}:${p.index}`);
+    expect(x).toEqual(y);
+    expect(x).not.toEqual(z);
+  });
+});
+
+describe('boss battles & world progression', () => {
+  it('pickBoss prefers hardest least-seen questions', () => {
+    const bank = makeBank();
+    const stats = { 'web:0': { ...freshStat(), seen: 9 } };
+    const boss = pickBoss(bank, 'web', stats, 3);
+    expect(boss).not.toContain(0); // most-seen question deprioritized
+    expect(boss).toHaveLength(3);
+  });
+  it('world 1 open, later worlds locked until progress', () => {
+    const s = base();
+    expect(worldUnlocked(0, s)).toBe(true);
+    expect(worldUnlocked(1, s)).toBe(false);
+  });
+  it('stars need accuracy thresholds and volume', () => {
+    const s = base();
+    expect(worldStars('web', s)).toBe(0); // <10 answers
+    for (let i = 0; i < 12; i++) s.qstats[`web:${i}`] = { ...freshStat(), seen: 1, correct: 1 };
+    expect(worldStars('web', s)).toBe(3); // 100%
+  });
+  it('boss unlocks at 80% world coverage', () => {
+    const s = base();
+    const bank = makeBank(); // 12 questions
+    for (let i = 0; i < 9; i++) s.qstats[`web:${i}`] = { ...freshStat(), seen: 1 };
+    expect(bossReady('web', s, bank)).toBe(false);
+    s.qstats['web:9'] = { ...freshStat(), seen: 1 };
+    expect(bossReady('web', s, bank)).toBe(true);
+  });
+});
+
+describe('power-ups', () => {
+  it('grant requires level 2+, use decrements', () => {
+    const s = base(); // level 1
+    expect(grantPowerUp(s, () => 0)).toBeNull();
+    s.xp = xpForLevel(2);
+    const kind = grantPowerUp(s, () => 0)!;
+    expect(s.powerUps[kind]).toBe(1);
+    expect(usePowerUp(s, kind)).toBe(true);
+    expect(s.powerUps[kind]).toBe(0);
+    expect(usePowerUp(s, kind)).toBe(false);
+  });
+});
+
+describe('mistakes notebook', () => {
+  it('records unreviewed mistakes once, clears on review', () => {
+    const s = base();
+    recordMistake(s, 'web', 3, 'w3');
+    recordMistake(s, 'web', 3, 'w3'); // duplicate while open
+    expect(openMistakes(s)).toHaveLength(1);
+    s.mistakes[0].reviewedAt = Date.now();
+    expect(openMistakes(s)).toHaveLength(0);
+  });
+});
+
+describe('leaderboard & analytics', () => {
+  it('keeps top-10 sorted desc', () => {
+    const s = base();
+    for (let i = 1; i <= 12; i++) insertLeaderRow(s, { score: i * 10, label: 'w', date: 'x' });
+    expect(s.leaderboard).toHaveLength(10);
+    expect(s.leaderboard[0].score).toBe(120);
+    expect(s.leaderboard[9].score).toBe(30);
+  });
+  it('accuracyByDifficulty aggregates per level', () => {
+    const s = base();
+    s.qstats['web:0'] = { ...freshStat(), seen: 2, correct: 1 }; // d=1
+    const rows = accuracyByDifficulty(s, makeBank());
+    expect(rows[0]).toEqual({ d: 1, seen: 2, pct: 50 });
+    expect(rows[4].seen).toBe(0);
+  });
+  it('heatmap covers n days ending today', () => {
+    const days = heatmapDays(base(), 14);
+    expect(days).toHaveLength(14);
+    expect(days[13].key).toBe(new Date().toISOString().slice(0, 10));
+  });
+  it('themes gate by level', () => {
+    const s = base();
+    expect(themeUnlocked('nebula', s)).toBe(true);
+    expect(themeUnlocked('inferno', s)).toBe(false);
+    s.xp = xpForLevel(8);
+    expect(themeUnlocked('inferno', s)).toBe(true);
+    expect(WORLDS.length).toBe(10);
   });
 });
 

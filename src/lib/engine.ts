@@ -1,4 +1,4 @@
-import type { PlayerState, QStat, Question, QuestionBank, SessionResult } from './types';
+import type { LeaderRow, MistakeEntry, PlayerState, PowerUpKind, QStat, Question, QuestionBank, SessionResult } from './types';
 
 export const WORLDS = [
   'web', 'js', 'python', 'data', 'math',
@@ -116,14 +116,19 @@ export function touchStreak(state: PlayerState, now = new Date()): PlayerState {
   return state;
 }
 
-export const ACHIEVEMENTS: Array<{ id: string; name: string; desc: string; test: (s: PlayerState, r: SessionResult) => boolean }> = [
-  { id: 'first-steps', name: 'First Steps', desc: 'Finish your first session', test: (_s, r) => r.total > 0 },
-  { id: 'flawless', name: 'Flawless Mind', desc: 'Score 100% in a session', test: (_s, r) => r.total >= 5 && r.correct === r.total },
-  { id: 'sharpshooter', name: 'Sharpshooter', desc: 'Score 500+ in one session', test: (_s, r) => r.score >= 500 },
-  { id: 'streak-3', name: 'On Fire', desc: 'Play 3 days in a row', test: (s) => s.streak >= 3 },
-  { id: 'streak-7', name: 'Unstoppable', desc: 'Play 7 days in a row', test: (s) => s.streak >= 7 },
-  { id: 'veteran-25', name: 'Veteran', desc: 'Answer 250 questions lifetime', test: (s) => Object.values(s.qstats).reduce((a, q) => a + q.seen, 0) >= 250 },
-  { id: 'master-90', name: 'Mastermind', desc: 'Reach level 10', test: (s) => levelFromXp(s.xp) >= 10 },
+export const ACHIEVEMENTS: Array<{ id: string; name: string; desc: string; rarity: 'common' | 'rare' | 'epic' | 'legendary'; test: (s: PlayerState, r: SessionResult) => boolean }> = [
+  { id: 'first-steps', name: 'First Steps', desc: 'Finish your first session', rarity: 'common', test: (_s, r) => r.total > 0 },
+  { id: 'flawless', name: 'Flawless Mind', desc: 'Score 100% in a session', rarity: 'rare', test: (_s, r) => r.total >= 5 && r.correct === r.total },
+  { id: 'sharpshooter', name: 'Sharpshooter', desc: 'Score 500+ in one session', rarity: 'rare', test: (_s, r) => r.score >= 500 },
+  { id: 'streak-3', name: 'On Fire', desc: 'Play 3 days in a row', rarity: 'common', test: (s) => s.streak >= 3 },
+  { id: 'streak-7', name: 'Unstoppable', desc: 'Play 7 days in a row', rarity: 'epic', test: (s) => s.streak >= 7 },
+  { id: 'veteran-25', name: 'Veteran', desc: 'Answer 250 questions lifetime', rarity: 'rare', test: (s) => Object.values(s.qstats).reduce((a, q) => a + q.seen, 0) >= 250 },
+  { id: 'master-90', name: 'Mastermind', desc: 'Reach level 10', rarity: 'epic', test: (s) => levelFromXp(s.xp) >= 10 },
+  { id: 'boss-slayer', name: 'Boss Slayer', desc: 'Defeat any world boss', rarity: 'epic', test: () => false }, // granted manually
+  { id: 'survivor-10', name: 'Survivor', desc: 'Survive 10 questions in Endless mode', rarity: 'rare', test: () => false },
+  { id: 'duel-champ', name: 'Duel Champion', desc: 'Win a hot-seat duel', rarity: 'common', test: () => false },
+  { id: 'blitz-ace', name: 'Blitz Ace', desc: 'Score 400+ in one Blitz run', rarity: 'epic', test: () => false },
+  { id: 'collector', name: 'Pack Collector', desc: 'Import a question pack', rarity: 'legendary', test: () => false },
 ];
 
 export function checkAchievements(state: PlayerState, result: SessionResult): string[] {
@@ -171,4 +176,163 @@ export function applySession(
   result.newAchievements = checkAchievements(state, result);
   state.achievements.push(...result.newAchievements);
   return result;
+}
+
+/* ================= v2: modes, power-ups, analytics ================= */
+
+/** Deterministic PRNG (mulberry32) for daily challenges. */
+export function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export function dateSeed(d = new Date()): number {
+  return Number(`${d.getUTCFullYear()}${String(d.getUTCMonth() + 1).padStart(2, '0')}${String(d.getUTCDate()).padStart(2, '0')}`);
+}
+
+/** Same N questions for everyone on a given day. */
+export function pickDaily(bank: QuestionBank, n = QUESTIONS_PER_SESSION, seed = dateSeed()): Array<{ world: string; index: number; q: Question }> {
+  const all: Array<{ world: string; index: number; q: Question }> = [];
+  for (const w of WORLDS) (bank[w] ?? []).forEach((q, i) => all.push({ world: w, index: i, q }));
+  const rng = mulberry32(seed);
+  for (let i = all.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [all[i], all[j]] = [all[j], all[i]];
+  }
+  return all.slice(0, Math.min(n, all.length));
+}
+
+/** Boss battle: the hardest unseen/least-seen questions of a world. */
+export function pickBoss(bank: QuestionBank, world: string, stats: Record<string, QStat>, count = 5): number[] {
+  const pool = bank[world] ?? [];
+  return pool
+    .map((q, i) => ({ i, score: q.d * 100 - (stats[`${world}:${i}`]?.seen ?? 0) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, count)
+    .map((x) => x.i);
+}
+
+export type WorldStatus = 'locked' | 'open' | 'boss-ready';
+
+/** Worlds unlock in order: previous world needs ≥60% accuracy over ≥12 seen. */
+export function worldUnlocked(worldIndex: number, state: PlayerState): boolean {
+  if (worldIndex === 0) return true;
+  const prev = WORLDS[worldIndex - 1];
+  let seen = 0, correct = 0;
+  for (const [k, st] of Object.entries(state.qstats)) {
+    if (k.startsWith(`${prev}:`)) { seen += st.seen; correct += st.correct; }
+  }
+  return seen >= 12 && correct / Math.max(1, seen) >= 0.6;
+}
+
+/** Stars per world from lifetime accuracy there (needs ≥10 answers). */
+export function worldStars(world: string, state: PlayerState): 0 | 1 | 2 | 3 {
+  let seen = 0, correct = 0;
+  for (const [k, st] of Object.entries(state.qstats)) {
+    if (k.startsWith(`${world}:`)) { seen += st.seen; correct += st.correct; }
+  }
+  if (seen < 10) return 0;
+  const pct = (correct / seen) * 100;
+  return pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+}
+
+export function bossReady(world: string, state: PlayerState, bank: QuestionBank): boolean {
+  const pool = bank[world] ?? [];
+  const answered = pool.filter((_, i) => state.qstats[`${world}:${i}`]?.seen).length;
+  return pool.length > 0 && answered >= Math.ceil(pool.length * 0.8);
+}
+
+/* ---- power-ups ---- */
+
+export const POWERUP_META: Record<PowerUpKind, { name: string; icon: string; desc: string }> = {
+  fifty: { name: '50 / 50', icon: '✂️', desc: 'Remove two wrong options' },
+  freeze: { name: 'Time Freeze', icon: '❄️', desc: 'Pause the timer this question' },
+  shield: { name: 'Shield', icon: '🛡️', desc: 'Survive one miss in Endless/Boss' },
+};
+
+const POWERUP_POOL: PowerUpKind[] = ['fifty', 'fifty', 'freeze', 'freeze', 'shield'];
+
+/** Grant a random power-up (used on level-up). Returns granted kind or null. */
+export function grantPowerUp(state: PlayerState, rng: () => number = Math.random): PowerUpKind | null {
+  if (levelFromXp(state.xp) < 2) return null;
+  const kind = POWERUP_POOL[Math.floor(rng() * POWERUP_POOL.length)];
+  state.powerUps[kind] += 1;
+  return kind;
+}
+
+export function usePowerUp(state: PlayerState, kind: PowerUpKind): boolean {
+  if (state.powerUps[kind] <= 0) return false;
+  state.powerUps[kind] -= 1;
+  return true;
+}
+
+/* ---- mistakes notebook ---- */
+
+export function recordMistake(state: PlayerState, world: string, index: number, qid: string): void {
+  if (!state.mistakes.some((m) => m.world === world && m.index === index && !m.reviewedAt)) {
+    state.mistakes.unshift({ world, index, qid, ts: Date.now() });
+  }
+  if (state.mistakes.length > 100) state.mistakes.length = 100;
+}
+
+export function openMistakes(state: PlayerState): MistakeEntry[] {
+  return state.mistakes.filter((m) => !m.reviewedAt);
+}
+
+/* ---- leaderboard ---- */
+
+export function insertLeaderRow(state: PlayerState, row: LeaderRow): void {
+  state.leaderboard.push(row);
+  state.leaderboard.sort((a, b) => b.score - a.score);
+  if (state.leaderboard.length > 10) state.leaderboard.length = 10;
+}
+
+/* ---- analytics ---- */
+
+export function accuracyByDifficulty(state: PlayerState, bank: QuestionBank): Array<{ d: number; seen: number; pct: number }> {
+  const acc: Record<number, { seen: number; correct: number }> = {};
+  for (const w of WORLDS) {
+    (bank[w] ?? []).forEach((q, i) => {
+      const st = state.qstats[`${w}:${i}`];
+      if (!st?.seen) return;
+      acc[q.d] ??= { seen: 0, correct: 0 };
+      acc[q.d].seen += st.seen;
+      acc[q.d].correct += st.correct;
+    });
+  }
+  return [1, 2, 3, 4, 5].map((d) => ({
+    d,
+    seen: acc[d]?.seen ?? 0,
+    pct: acc[d]?.seen ? Math.round((acc[d].correct / acc[d].seen) * 100) : 0,
+  }));
+}
+
+/** Last N days heatmap data: sessions played per day. */
+export function heatmapDays(state: PlayerState, n = 14): Array<{ key: string; sessions: number }> {
+  const out: Array<{ key: string; sessions: number }> = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const dt = new Date();
+    dt.setDate(dt.getDate() - i);
+    const k = todayKey(dt);
+    out.push({ key: k, sessions: state.dailyLog[k]?.sessions ?? 0 });
+  }
+  return out;
+}
+
+/* ---- themes (unlock by level) ---- */
+
+export const THEMES: Array<{ id: string; name: string; minLevel: number }> = [
+  { id: 'nebula', name: 'Nebula', minLevel: 1 },
+  { id: 'aurora', name: 'Aurora', minLevel: 4 },
+  { id: 'inferno', name: 'Inferno', minLevel: 8 },
+];
+
+export function themeUnlocked(themeId: string, state: PlayerState): boolean {
+  const t = THEMES.find((x) => x.id === themeId);
+  return !!t && levelFromXp(state.xp) >= t.minLevel;
 }

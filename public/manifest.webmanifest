@@ -1,12 +1,13 @@
 {
-  "name": "Quizora",
+  "name": "Quizora — Conquer knowledge, one world at a time",
   "short_name": "Quizora",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#070b1e",
-  "theme_color": "#7c5cff",
-  "description": "Deep-space adaptive quiz adventure - 250 questions, 10 worlds.",
+  "background_color": "#070b1a",
+  "theme_color": "#7c6cff",
+  "description": "Deep-space adaptive quiz adventure: 10 worlds, boss battles, power-ups, streaks and achievements.",
   "icons": [
-    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
   ]
 }
