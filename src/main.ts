@@ -468,9 +468,12 @@ function showFeedback(ref: QRef, chosen: number | null, ok: boolean, saved: bool
     else if (i === chosen) b.classList.add('wrong');
   });
   const verdict = document.getElementById('verdict')!;
+  verdict.hidden = false;
   verdict.className = `verdict ${ok ? 'ok' : 'bad'}`;
   verdict.textContent = ok ? `✅ Correct! +${gained}` : saved ? '🛡️ Shield absorbed the miss' : chosen === null ? '⏱ Time!' : '❌ Miss';
-  document.getElementById('explain')!.textContent = ref.q.explain;
+  const explain = document.getElementById('explain')!;
+  explain.hidden = false;
+  explain.textContent = ref.q.explain;
   const btn = document.getElementById('btn-next')!;
   btn.hidden = false;
   btn.focus();
@@ -601,12 +604,12 @@ app.addEventListener('click', (e) => {
 
   if (t.id === 'btn-install' && deferredInstall) { deferredInstall.prompt(); deferredInstall = null; return; }
 
-  const worldBtn = t.closest('[data-world]') as HTMLElement | null;
-  if (worldBtn) { startRun(worldBtn.dataset.boss ? 'boss' : 'world', worldBtn.dataset.world!); return; }
-
   const bossWrap = t.closest('.world') as HTMLElement | null;
   const bossBtn = t.closest('.bossflag') as HTMLElement | null;
   if (bossBtn && bossWrap) { startRun('boss', bossWrap.dataset.world!); return; }
+
+  const worldBtn = t.closest('[data-world]') as HTMLElement | null;
+  if (worldBtn) { startRun(worldBtn.dataset.boss ? 'boss' : 'world', worldBtn.dataset.world!); return; }
 
   if (t.id === 'btn-daily') return startRun('daily');
   if (t.id === 'btn-blitz') return startRun('blitz');
@@ -644,13 +647,13 @@ app.addEventListener('click', (e) => {
   }
 });
 
-document.getElementById('file-pack')?.addEventListener('change', async (e) => {
-  const f = (e.target as HTMLInputElement).files?.[0];
-  if (f) await importPack(f);
-});
-
 document.addEventListener('change', (e) => {
   const t = e.target as HTMLInputElement;
+  if (t.id === 'file-pack') {
+    const f = t.files?.[0];
+    if (f) void importPack(f);
+    return;
+  }
   if (t.id === 'sw-sound') { state.sound = t.checked; saveState(state); }
   if (t.id === 'sw-dys') { state.dysFont = t.checked; saveState(state); applyTheme(); }
 });
