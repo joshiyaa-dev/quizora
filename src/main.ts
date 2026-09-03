@@ -13,7 +13,7 @@ import type { PlayerState, PowerUpKind, Question, QuestionBank } from './lib/typ
 
 const bank = rawBank as unknown as QuestionBank;
 
-type Screen = 'home' | 'game' | 'results' | 'profile' | 'leaders' | 'notebook' | 'settings';
+type Screen = 'home' | 'game' | 'results' | 'profile' | 'leaders' | 'notebook' | 'settings' | 'prototype';
 type ModeKind = 'world' | 'boss' | 'daily' | 'blitz' | 'duel' | 'survival';
 
 const app = document.getElementById('app')!;
@@ -112,6 +112,7 @@ function homeView(): string {
       <button class="btn ghost" id="btn-blitz">⚡ Blitz 60s</button>
       <button class="btn ghost" id="btn-duel">⚔️ Hot-Seat Duel</button>
       <button class="btn ghost" id="btn-survival">💀 Endless Survival</button>
+      <button class="btn ghost" id="btn-judge-prototype">🧪 Judges Prototype</button>
     </div>`;
   const cards = WORLDS.map((w, i) => {
     const unlocked = worldUnlocked(i, state);
@@ -230,6 +231,34 @@ function settingsView(): string {
     <p id="sync-msg" class="muted"></p>
   </section>
   <section class="card danger-zone"><button class="btn danger" id="btn-reset">☠️ Reset all progress</button></section>`;
+}
+
+/* ============================================================ JUDGES PROTOTYPE */
+function prototypeView(): string {
+  const unlockedWorlds = WORLDS.filter((_, i) => worldUnlocked(i, state)).length;
+  const totalAnswers = Object.values(state.qstats).reduce((sum, q) => sum + q.seen, 0);
+  const notebookOpen = openMistakes(state).length;
+  const leaderTop = state.leaderboard[0];
+  return `<header class="top"><button class="btn ghost" data-nav="home">← Home</button><h2>🧪 Judges Prototype</h2></header>
+  <section class="card proto-intro">
+    <h3>What this prototype shows</h3>
+    <p class="muted">Quizora blends adaptive quiz gameplay, progression rewards, and mistake-based revision in one flow.</p>
+    <div class="proto-grid">
+      <div class="proto-box"><b>Adaptive Quiz Engine</b><span>${unlockedWorlds}/${WORLDS.length} worlds unlocked</span></div>
+      <div class="proto-box"><b>Gamification Loop</b><span>Lv ${level()} · ${state.xp} XP · 🔥 ${state.streak}</span></div>
+      <div class="proto-box"><b>Learning Feedback</b><span>${notebookOpen} open mistakes to review</span></div>
+      <div class="proto-box"><b>Run History</b><span>${totalAnswers} answers submitted</span></div>
+    </div>
+    <div class="proto-steps">
+      <p><b>Judge flow:</b> Start challenge → answer with instant feedback → view score ring + XP + streak impact.</p>
+      <p>${leaderTop ? `Best recorded score: <b>${leaderTop.score}</b> (${esc(leaderTop.label)})` : 'No recorded leaderboard run yet.'}</p>
+    </div>
+    <div class="rowgap">
+      <button class="btn primary" id="btn-demo-start">▶ Start 5-question live demo</button>
+      <button class="btn ghost" data-nav="profile">📊 Open analytics</button>
+      <button class="btn ghost" data-nav="notebook">📓 Open mistakes notebook</button>
+    </div>
+  </section>`;
 }
 
 function getSyncCfg(): { pat: string; gistId: string } {
@@ -583,7 +612,7 @@ function render(): void {
   applyTheme();
   const views: Record<Screen, () => string> = {
     home: homeView, profile: profileView, leaders: leadersView,
-    notebook: notebookView, settings: settingsView, game: gameView,
+    notebook: notebookView, settings: settingsView, prototype: prototypeView, game: gameView,
     results: resultsView,
   };
   app.innerHTML = views[screen]();
@@ -612,6 +641,8 @@ app.addEventListener('click', (e) => {
   if (t.id === 'btn-blitz') return startRun('blitz');
   if (t.id === 'btn-duel') return startRun('duel');
   if (t.id === 'btn-survival') return startRun('survival');
+  if (t.id === 'btn-judge-prototype') { screen = 'prototype'; render(); return; }
+  if (t.id === 'btn-demo-start') return startRun('daily');
 
   if (t.id === 'btn-export-pack') return exportPack();
   if (t.id === 'btn-sync-push') return void gistPush();
